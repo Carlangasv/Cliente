@@ -20,7 +20,8 @@
 
     <div id="wrapper">
       <div id="content">
-        <b-button type="submit" @click="showTable = !showTable"
+        <b-button type="submit" @click="showTable = !showTable" 
+        block variant = "danger"
           >Publicaciones</b-button
         >
         <ul>
@@ -35,6 +36,7 @@
       </div>
        <div id="content">
         <b-button type="submit" @click="showTable2 = !showTable2"
+        block variant = "danger"
           >Convenios y movilidad</b-button
         >
         <ul>
