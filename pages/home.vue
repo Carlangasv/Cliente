@@ -24,6 +24,7 @@
         block variant = "danger"
           >Publicaciones</b-button
         >
+        <br>
         <ul>
           <li
             v-for="(modulo, index) in lista_opciones"
@@ -39,6 +40,7 @@
         block variant = "danger"
           >Convenios y movilidad</b-button
         >
+        <br>
         <ul>
           <li
             v-for="(modulo, index) in lista_modulos"
