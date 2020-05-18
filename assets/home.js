@@ -105,11 +105,11 @@ export default {
             } else if (temp.Proyecto === "Convenios y Movilidad") {
               this.lista_mov_acc.push(temp);
             }
+            }
             console.log("lista publicaciones");
             console.log(this.list_prop_acc);
             console.log("lista movilidad");
             console.log(this.lista_mov_acc);
-          }
         })
         .catch((error) => {
           console.log(error);
