@@ -49,7 +49,7 @@ export default {
 
     mostrar_opciones() {
       let id = localStorage.getItem("id");
-      let url = config.url_api + "permisos/";
+      let url = config.url_api + "permisos2/";
       let token = localStorage.getItem("token");
       let arrayPermisos = []
       axios
