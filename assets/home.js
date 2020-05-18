@@ -63,15 +63,10 @@ export default {
             let temp = {
               Accion: "",
               Url: "",
-              Modulo: "",
-              Proyecto:"",
-              Opcion:""
             };
             temp.Modulo = array[i].Modulo;
             temp.Proyecto = array[i].Proyecto;
             temp.Url = array[i].Url;
-            temp.Accion = array[i].Acción;
-            temp.Opcion = array[i].Opción;
             if (temp.Proyecto === "Publicaciones") {
               this.lista_opciones.push(temp);
             } else if (temp.Proyecto === "Convenios y Movilidad") {
@@ -80,7 +75,7 @@ export default {
           }
           console.log("Todos movilidad");
           console.log(this.lista_modulos);
-          console.log("Todos publicaciones");
+          console.log("lista opciones");
           console.log(this.lista_opciones);
         })
         .catch((error) => {
