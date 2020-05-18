@@ -12,12 +12,14 @@ export default {
     this.cargar_pagina();
   },
   mounted() {
-    this.mostrar_opciones();
+    this.mostrar_opciones(), this.cargar_acciones();
   },
   data() {
     return {
       lista_modulos: [],
       lista_opciones: [],
+      lista_mov_acc: [],
+      list_prop_acc: [],
       showTable: false,
       showTable2: false,
     };
@@ -60,13 +62,13 @@ export default {
           for (let i in array) {
             let temp = {
               Accion: "",
-              Url: ""
+              Url: "",
             };
             temp.Modulo = array[i].Modulo;
             temp.Proyecto = array[i].Proyecto;
             temp.Url = array[i].Url;
             if (temp.Proyecto === "Publicaciones") {
-              this.lista_opciones.push(temp)
+              this.lista_opciones.push(temp);
             } else if (temp.Proyecto === "Convenios y Movilidad") {
               this.lista_modulos.push(temp);
             }
@@ -80,9 +82,38 @@ export default {
           console.log(error);
         });
     },
-    ir(item) {
-      let url = item.item.Url;
-      this.$router.push(url);
+    cargar_acciones() {
+      let id = localStorage.getItem("id");
+      let url = config.url_api + "permisos2/";
+      let token = localStorage.getItem("token");
+      axios
+        .get(url + id, {
+          headers: { token },
+        })
+        .then((response) => {
+          console.log("Permisos");
+          console.log(response.data);
+          let array = response.data.info;
+          for (let i in array) {
+            let temp = { Accion: "", Modulo: "", Opcion: "", Proyecto: "" };
+            temp.Accion = array[i].Acción;
+            temp.Modulo = array[i].Modulo;
+            temp.Opcion = array[i].Opción;
+            temp.Proyecto = array[i].Proyecto;
+            if (temp.Proyecto === "Publicaciones") {
+              this.list_prop_acc.push(temp);
+            } else if (temp.Proyecto === "Convenios y Movilidad") {
+              this.lista_mov_acc.push(temp);
+            }
+            console.log("lista publicaciones");
+            console.log(this.list_prop_acc);
+            console.log("lista movilidad");
+            console.log(this.lista_mov_acc);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 };
