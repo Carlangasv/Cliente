@@ -4,11 +4,11 @@
       <b-col>
         <!-- Content here -->
 
-        <div class="container">
+        <div class="container_login">
           <b-icon icon="person-square" variant="danger" font-scale="4"></b-icon>
         </div>
 
-        <div class="container">
+        <div class="container_login">
           <div class="tittle">PERFIL</div>
           <b-icon icon="pencil" variant="danger" font-scale="2"></b-icon>
         </div>
