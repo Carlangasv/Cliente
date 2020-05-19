@@ -66,7 +66,8 @@ export default {
             };
             temp.Modulo = array[i].Modulo;
             temp.Proyecto = array[i].Proyecto;
-            temp.Url = array[i].Url != "" ? array[i].Url +"/?token="+token : "https://proyecto-seguridad-udem.herokuapp.com/404";
+            temp.Url = array[i].Url == ""  || array[i].Url == null ? 
+            "https://proyecto-seguridad-udem.herokuapp.com/404" : array[i].Url +"/?token="+token
             if (temp.Proyecto === "Publicaciones") {
               this.lista_opciones.push(temp);
             } else if (temp.Proyecto === "Convenios y Movilidad") {
